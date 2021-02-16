@@ -6,7 +6,7 @@ Commands will output under directory target.
 
 
 
-% mvn build 
+% mvn compile 
 
 % mnv test
 
