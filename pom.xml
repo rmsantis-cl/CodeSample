@@ -1,0 +1,94 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>santis.renato</groupId>
+	<artifactId>CodeSample</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Code Sample</name>
+	<description>For Motionpoint evaluation</description>
+
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13.2</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+
+
+	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<encoding>Cp1252</encoding>
+					<source>1.8</source>
+					<target>1.8</target>
+					<properties>
+						<maven.compiler.release>8</maven.compiler.release>
+					</properties>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<mainClass>graph.Main</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.2.0</version>
+				<configuration>
+					<source>8</source>
+					<detectJavaApiLink>false</detectJavaApiLink>
+					<show>private</show>
+					<nohelp>true</nohelp>
+					<doctitle>My API for ${project.name} ${project.version}</doctitle>
+					<windowtitle>My API for ${project.name} ${project.version}</windowtitle>
+
+					<testDoctitle>My Test API for ${project.name} ${project.version}</testDoctitle>
+					<testWindowtitle>My Test API for ${project.name} ${project.version}</testWindowtitle>
+
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.1</version>
+				<configuration>
+					<parallel>methods</parallel>
+					<threadCount>10</threadCount>
+					<testFailureIgnore>true</testFailureIgnore>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				        <configuration>
+          <configLocation>checkstyle-8.32.xml</configLocation>
+        </configuration>
+			</plugin>
+
+
+		</plugins>
+
+	</build>
+
+</project>
